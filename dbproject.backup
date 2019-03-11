@@ -1,0 +1,473 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.11
+-- Dumped by pg_dump version 9.6.11
+
+-- Started on 2019-03-11 13:47:00
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12387)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2175 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 186 (class 1259 OID 57700)
+-- Name: member; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.member (
+    id_member integer NOT NULL,
+    name_member character varying(60) NOT NULL,
+    surname character varying(60) NOT NULL,
+    genre boolean NOT NULL,
+    date_birth date NOT NULL,
+    pword character varying(255) NOT NULL,
+    email character varying(60) NOT NULL,
+    country character varying(30) NOT NULL,
+    activate_code boolean NOT NULL,
+    activate_count boolean NOT NULL,
+    date_inscription date NOT NULL,
+    biography character varying(2000) NOT NULL,
+    role_user integer NOT NULL,
+    pseudo character varying(60) NOT NULL
+);
+
+
+ALTER TABLE public.member OWNER TO postgres;
+
+--
+-- TOC entry 185 (class 1259 OID 57698)
+-- Name: member_id_member_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.member_id_member_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.member_id_member_seq OWNER TO postgres;
+
+--
+-- TOC entry 2176 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: member_id_member_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.member_id_member_seq OWNED BY public.member.id_member;
+
+
+--
+-- TOC entry 192 (class 1259 OID 57747)
+-- Name: message; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.message (
+    id_message integer NOT NULL,
+    title character varying(50) NOT NULL,
+    content character varying(2000) NOT NULL,
+    "timestamp" date NOT NULL,
+    statut boolean NOT NULL,
+    id_member integer NOT NULL,
+    id_travel integer NOT NULL
+);
+
+
+ALTER TABLE public.message OWNER TO postgres;
+
+--
+-- TOC entry 191 (class 1259 OID 57745)
+-- Name: message_id_message_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.message_id_message_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.message_id_message_seq OWNER TO postgres;
+
+--
+-- TOC entry 2177 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: message_id_message_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.message_id_message_seq OWNED BY public.message.id_message;
+
+
+--
+-- TOC entry 188 (class 1259 OID 57713)
+-- Name: profile; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.profile (
+    id_profile integer NOT NULL,
+    country_visited character varying(2000) NOT NULL,
+    avatar character varying(255) NOT NULL,
+    situation_perso character(1) NOT NULL,
+    id_member integer NOT NULL
+);
+
+
+ALTER TABLE public.profile OWNER TO postgres;
+
+--
+-- TOC entry 187 (class 1259 OID 57711)
+-- Name: profile_id_profile_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.profile_id_profile_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.profile_id_profile_seq OWNER TO postgres;
+
+--
+-- TOC entry 2178 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: profile_id_profile_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.profile_id_profile_seq OWNED BY public.profile.id_profile;
+
+
+--
+-- TOC entry 190 (class 1259 OID 57731)
+-- Name: travel; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.travel (
+    id_travel integer NOT NULL,
+    country_travel character varying(2000) NOT NULL,
+    date_depart date NOT NULL,
+    date_return date NOT NULL,
+    flexible boolean NOT NULL,
+    number_max integer NOT NULL,
+    participe integer NOT NULL,
+    comment character varying(2000) NOT NULL,
+    date_proposition date NOT NULL,
+    id_member integer NOT NULL
+);
+
+
+ALTER TABLE public.travel OWNER TO postgres;
+
+--
+-- TOC entry 189 (class 1259 OID 57729)
+-- Name: travel_id_travel_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.travel_id_travel_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.travel_id_travel_seq OWNER TO postgres;
+
+--
+-- TOC entry 2179 (class 0 OID 0)
+-- Dependencies: 189
+-- Name: travel_id_travel_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.travel_id_travel_seq OWNED BY public.travel.id_travel;
+
+
+--
+-- TOC entry 2023 (class 2604 OID 57703)
+-- Name: member id_member; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.member ALTER COLUMN id_member SET DEFAULT nextval('public.member_id_member_seq'::regclass);
+
+
+--
+-- TOC entry 2026 (class 2604 OID 57750)
+-- Name: message id_message; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.message ALTER COLUMN id_message SET DEFAULT nextval('public.message_id_message_seq'::regclass);
+
+
+--
+-- TOC entry 2024 (class 2604 OID 57716)
+-- Name: profile id_profile; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.profile ALTER COLUMN id_profile SET DEFAULT nextval('public.profile_id_profile_seq'::regclass);
+
+
+--
+-- TOC entry 2025 (class 2604 OID 57734)
+-- Name: travel id_travel; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.travel ALTER COLUMN id_travel SET DEFAULT nextval('public.travel_id_travel_seq'::regclass);
+
+
+--
+-- TOC entry 2161 (class 0 OID 57700)
+-- Dependencies: 186
+-- Data for Name: member; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.member (id_member, name_member, surname, genre, date_birth, pword, email, country, activate_code, activate_count, date_inscription, biography, role_user, pseudo) FROM stdin;
+1	borges	jeremy	t	1975-04-11	adminkercode	borgesjere@hotmail.com	france	t	t	2019-02-25	le voyage cest la vie	0	jerem
+2	le gonidec	sophie	f	1977-10-01	motdepasse	legosophie@yahoo.fr	france	t	t	2019-02-25	pour continuer a voyager	1	gart
+3	chevalier	philippe	t	1962-12-29	chevalier	chevalierphil@wanadoo.fr	france	t	t	2019-02-26	parce que j adore faire des trecks en jungle 	1	phil
+4	grennslade	jane	t	1970-10-19	grennslade	janesgrenn@wanadoo.au	australie	t	t	2019-02-26	to travel all over the wolrd with differents peoples	1	janes
+5	zampoli	eric	t	1975-07-19	zampoli	zampoli@hotmail.zl	hollande	t	t	2019-02-26	pour faire un voyage en inde	1	zampoli
+6	bob	bob	f	1977-10-01	bob	bob@yahoo.fr	france	t	t	2019-03-02	bob	1	bob
+15	fedfv	juhel	t	1960-05-05	$2y$10$6LyGIHafNWMXYMoybMzHSe.4y6mEinX2LstJTDooOizwM3L9NIKCa	juju@yahoo.fr	france	t	t	2019-03-04	blabla	1	juju
+7	giodjr	juhel	t	1960-05-05	$2y$10$H/IUehAz1eI.AC2gr5LxZepkQrlnOGG4sIXDJknALeqkkQ6d/RHAm	juju	juju@yahoo.fr	t	t	2019-03-04	france	1	blabla
+18	bib	bib	t	1970-05-05	$2y$10$5oWHk/EstY42iPN9/V.bnePmfW/rYZRpavp/L8s1jpLClJ91hUhUq	dr.yves.tricoire@gmail	france	t	t	2019-03-04	blabla	1	bibo
+19	sas	sas	t	1960-05-05	$2y$10$YWxvbaIdulUAusQn31E9zuRMrW.3lC5r6.I/y4LWkSeou2kWOn7OG	borgesjere@hotmail.com	france	t	t	2019-03-04	blabla	1	sas
+20	zer	zer	t	1970-05-05	$2y$10$ZrIkpsrc0ElWtBwHPXQEMeLu8f5SFjfET3iuHT9M121uqjdqq6IHu	borgesjere@hotmail.com	france	t	t	2019-03-04	blabla	1	zert
+21	az	az	t	1970-05-05	$2y$10$ZBCJAB.kUvbJLSmdvrtc7u.IvTUVSZeWcMNKUVcNGHN0NsZDQHm2i	contact@artemis56.fr	france	t	t	2019-03-04	blabla	1	az
+22	eron	eron	t	1980-05-05	$2y$10$To6DHU.5e72OCbMmpPNtCerfbV1/0.zw24GjeAmoK0A4ykkru0Fkq	borgesje@dvfd.fr	belgique	t	t	2019-03-06	blabla	1	eron
+23	wx	wx	t	1960-05-05	$2y$10$5.WXXDcdqX8Bkl7feKQ4JeBxr1vmWUsRGWZRH83H94KKPll6lMvhO	juju@yahoo.fr	france	t	t	2019-03-07	blabla	1	wx
+24	v	v	f	1960-05-05	$2y$10$LHnlVkJdanNpehPZpW77zuwzGpEh4/YxiKz0ZCWUXnxQMbXtdDG0a	de.yves.tricoire@gmail	belgique	t	t	2019-03-07	blabla	1	v
+25	q	q	t	1960-05-05	$2y$10$sCpMPsBk/3g8wO9.Ixo6mOmrhXEUmy1XttjKWdU7/yf8C2Lx9OPRy	dr.yves.tricoire@gmail.com	france	t	t	2019-03-07	blabla	1	quentin
+26	h	h	t	1960-05-05	$2y$10$wLQWuDlG2Ol33pn16hYwT./Jpef/70hs0qfAZVZioCfCF0WleO5.y	gg@hotmail.com	france	t	t	2019-03-08	blabla	1	h
+28	g	g	t	1960-05-05	$2y$10$/vcqzEEuaXQgc7lhZAIBheKO2ngcjwdXnfnyATvT/XPGELVhS7hl6	juju@yahoo.fr	france	t	t	2019-03-08	blabla	1	g
+29	p	p	t	1960-05-05	$2y$10$8RfoBR9M/upYrCPVZSreROq1MsXKiJlusoKzlz24G1LV2dbTc8rmi	juju@yahoo.fr	france	t	t	2019-03-08	blabla	1	p
+\.
+
+
+--
+-- TOC entry 2180 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: member_id_member_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.member_id_member_seq', 29, true);
+
+
+--
+-- TOC entry 2167 (class 0 OID 57747)
+-- Dependencies: 192
+-- Data for Name: message; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.message (id_message, title, content, "timestamp", statut, id_member, id_travel) FROM stdin;
+1	Amazonie nous voila	super enhousiate de partie dans  amazonie, en pirrogue ou bateau moteur?	2019-02-25	t	1	1
+2	super entousiasme pour ce treck	pour le treck , est ce quil y aura des yack?	2019-02-26	t	2	7
+\.
+
+
+--
+-- TOC entry 2181 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: message_id_message_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.message_id_message_seq', 2, true);
+
+
+--
+-- TOC entry 2163 (class 0 OID 57713)
+-- Dependencies: 188
+-- Data for Name: profile; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.profile (id_profile, country_visited, avatar, situation_perso, id_member) FROM stdin;
+12	turquie	\\public\\image\\2.jpg	1	24
+1	Inde,Thailande,Birmanie	\\public\\image\\myAvatar.jpg	0	1
+2	Inde	\\public\\image\\myAvatar2H.jpg	0	2
+3	iran, chine maroc	\\public\\image\\6.jpg	0	5
+5	inde,guatemala,belize	\\public\\image\\2.jpg	1	3
+4	indonésie,afrique du sud ,france	\\public\\image\\3.jpg	1	4
+6	francofolie	\\public\\image\\2.jpg	0	19
+9	tanzanie	\\public\\image\\2.jpg	0	23
+7	tanzanie	.\\public\\image\\2.jpg	0	22
+13	tanzanie	\\public\\image\\2.jpg	2	25
+15	tanzanie	\\public\\image\\2.jpg	2	29
+14	bolivie	\\public\\image\\2.jpg	2	28
+19	bolivie		 	18
+\.
+
+
+--
+-- TOC entry 2182 (class 0 OID 0)
+-- Dependencies: 187
+-- Name: profile_id_profile_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.profile_id_profile_seq', 19, true);
+
+
+--
+-- TOC entry 2165 (class 0 OID 57731)
+-- Dependencies: 190
+-- Data for Name: travel; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.travel (id_travel, country_travel, date_depart, date_return, flexible, number_max, participe, comment, date_proposition, id_member) FROM stdin;
+1	perou	2019-05-05	2019-05-05	f	7	3	pour faire un tour dans amazonie pour la journée, 50$ chacun	2019-02-25	2
+2	japon	2019-06-17	2019-07-01	t	2	3	envis daller sur les iles dans le nord	2019-02-26	2
+3	Inde	2019-06-06	2019-06-08	f	4	3	un sadhu me propose de voir la vallée de parvati, le treck vaut 600 euros à partager avec ceux ou celle de ca interresse	2019-02-26	5
+4	france	2019-07-06	2019-07-06	f	6	3	pour rejoindre belle ile en voilier 300 euros la journée	2019-02-26	4
+5	france	2019-07-08	2019-07-09	f	4	3	deux jours dans les monts d arret avec guide,repas,logement 288 euros	2019-02-26	4
+6	france	2019-07-14	2019-07-17	f	6	3	partir de brest jusquau mont saint michel en voilier 900 eros tout compris avec retour a brest en voiture	2019-02-26	4
+7	inde	2019-06-11	2019-06-21	t	5	3	treck a partir de manali jusqua mac leod gang, 1000 euros tout compris	2019-02-26	5
+10	france	2019-03-05	2019-03-05	t	2	3	xcbxcbxcvwdv	2019-03-05	19
+11	perou	2019-05-05	2019-05-05	f	7	3	pour faire un tour dans amazonie pour la journée, 50$ chacun	2019-03-06	2
+12	belgique	2019-03-12	2019-03-14	t	5	1	blablabla	2019-03-06	19
+13	Francophonie	2017-02-05	2018-02-05	t	5	1	blablabla	2019-03-06	19
+14	Francophonie	2017-02-05	2018-02-05	t	5	1	blablabla	2019-03-06	19
+15	Francophonie	2019-03-27	2019-03-29	t	5	1	blablabla	2019-03-06	19
+16	Francophonie	2019-03-11	2019-03-13	t	5	1	blablabla	2019-03-06	19
+17	belgique	2019-03-26	2019-03-29	t	5	1	blablabla	2019-03-06	22
+18	Tanzanie	2017-01-04	2018-01-03	t	5	1	blablabla	2019-03-06	22
+19	Tanzanie	2019-03-06	2019-03-15	t	5	2	blablabla	2019-03-06	19
+20	belgique	2019-03-07	2019-03-08	t	5	1	blablabla	2019-03-07	23
+21	inde	2019-03-09	2019-03-21	t	5	3	zgdfhdfgsdghdfhfdgzrgze	2019-03-08	29
+\.
+
+
+--
+-- TOC entry 2183 (class 0 OID 0)
+-- Dependencies: 189
+-- Name: travel_id_travel_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.travel_id_travel_seq', 21, true);
+
+
+--
+-- TOC entry 2028 (class 2606 OID 57710)
+-- Name: member member_ak; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.member
+    ADD CONSTRAINT member_ak UNIQUE (pseudo);
+
+
+--
+-- TOC entry 2030 (class 2606 OID 57708)
+-- Name: member member_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.member
+    ADD CONSTRAINT member_pk PRIMARY KEY (id_member);
+
+
+--
+-- TOC entry 2038 (class 2606 OID 57755)
+-- Name: message message_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.message
+    ADD CONSTRAINT message_pk PRIMARY KEY (id_message);
+
+
+--
+-- TOC entry 2032 (class 2606 OID 57723)
+-- Name: profile profile_member_ak; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.profile
+    ADD CONSTRAINT profile_member_ak UNIQUE (id_member);
+
+
+--
+-- TOC entry 2034 (class 2606 OID 57721)
+-- Name: profile profile_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.profile
+    ADD CONSTRAINT profile_pk PRIMARY KEY (id_profile);
+
+
+--
+-- TOC entry 2036 (class 2606 OID 57739)
+-- Name: travel travel_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.travel
+    ADD CONSTRAINT travel_pk PRIMARY KEY (id_travel);
+
+
+--
+-- TOC entry 2041 (class 2606 OID 57756)
+-- Name: message message_member_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.message
+    ADD CONSTRAINT message_member_fk FOREIGN KEY (id_member) REFERENCES public.member(id_member);
+
+
+--
+-- TOC entry 2042 (class 2606 OID 57761)
+-- Name: message message_travel0_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.message
+    ADD CONSTRAINT message_travel0_fk FOREIGN KEY (id_travel) REFERENCES public.travel(id_travel);
+
+
+--
+-- TOC entry 2039 (class 2606 OID 57724)
+-- Name: profile profile_member_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.profile
+    ADD CONSTRAINT profile_member_fk FOREIGN KEY (id_member) REFERENCES public.member(id_member);
+
+
+--
+-- TOC entry 2040 (class 2606 OID 57740)
+-- Name: travel travel_member_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.travel
+    ADD CONSTRAINT travel_member_fk FOREIGN KEY (id_member) REFERENCES public.member(id_member);
+
+
+-- Completed on 2019-03-11 13:47:04
+
+--
+-- PostgreSQL database dump complete
+--
+
