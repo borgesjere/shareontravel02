@@ -1,0 +1,39 @@
+inserer dans member
+INSERT INTO public."member" (name, surname,genre, date_birth, pword,email,country, activate_code  , activate_count , date_inscription ,biography,role_user, pseudo)
+VALUES 
+( 'le gonidec','sophie',false,'1977-10-01', 'motdepasse', 'legosophie@yahoo.fr','france','true','true',now(),'pour continuer a voyager',1,'gart')
+  
+INSERT INTO public."member" (name, surname,genre, date_birth, pword,email,country, activate_code  , activate_count , date_inscription ,biography,role_user, pseudo)
+VALUES 
+( 'borges','jeremy',true,'1975-04-11', 'adminkercode', 'borgesjere@hotmail.com','france','true','true',now(),'le voyage cest la vie',0,'jerem')
+  
+  inserer dans profile
+INSERT INTO public."profile" (country_visited,avatar,situation_perso,id_member)
+VALUES 
+( 'Inde,Thailande,Birmanie','C:\xampp\htdocs\shareontravel\public\image\myAvatar.jpg','solo', '1')
+
+    inserer un message
+INSERT INTO public."message" (title,content,timestamp,statut,id_member,id_travel)
+VALUES 
+( 'Amazonie nous voila','super enhousiate de partie dans  amazonie, en pirrogue ou bateau moteur?',now(),'true','1','1')
+
+inserer dans travel
+   INSERT INTO public."travel" (country,date_depart,date_return,flexible,number_max,genre,comment,date_proposition,id_member)
+VALUES 
+( 'perou','2019-05-05','2019-05-5', 'false' , '7', '3', 'pour faire un tour dans amazonie pour la journée, 50$ chacun',now(),'2')
+( 'Inde','2019-06-06','2019-06-08', 'false' , '4', '3', 'un sadhu me propose de voir la vallée de parvati, le treck vaut 600 euros à partager avec ceux ou celle de ca interresse',now(),'5')
+
+
+
+participe
+renommer une table
+ALTER TABLE travel
+RENAME COLUMN genre TO participe 
+
+
+SELECT id_travel,country_travel,date_depart,date_return,flexible,number_max,participe,comment,date_proposition,name,surname,date_birth,country,avatar FROM travel
+INNER JOIN member ON travel.id_member=member.id_member 
+INNER JOIN profile ON member.id_member=profile.id_member 
+WHERE travel.id_travel=2
+
+SELECT id_member, pseudo, pword, role_user FROM member WHERE pseudo ='jerem'

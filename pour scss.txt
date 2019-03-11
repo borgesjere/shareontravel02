@@ -1,0 +1,102 @@
+sass --watch public/scss/style.scss:public/css/style.css --style compressed
+
+
+kercode2018@Pc MINGW64 ~ (master)
+$ cd /c
+
+kercode2018@Pc MINGW64 /c
+$ cd /xampp\htdocs\shareontravel
+bash: cd: /xampphtdocsshareontravel: No such file or directory
+
+kercode2018@Pc MINGW64 /c
+$ ls
+'$Recycle.Bin'/                    msdia80.dll*
+ _DSC6751.jpg                      NT6_Fast_Installer/
+ AI_CS2_FR_NonRet/                 Open_Data/
+ bootsqm.dat                       pagefile.sys
+ bootstrap-4.1.3-dist/             PerfLogs/
+'divers shell scripts msdos'/      PostgreSQL/
+'Documents and Settings'@         'Program Files'/
+ epson603333eu.exe*               'Program Files (x86)'/
+ ERLibrary/                        ProgramData/
+ flashplayer27au_fd_install.exe*  'projet autres annnees'/
+ found.000/                        PS_CS2_FR_NonRet/
+ found.001/                        public/
+ found.002/                        Recovery/
+ found.003/                        Ruby25-x64/
+ found.004/                        spiderfoot-2.12/
+ found.005/                       'System Volume Information'/
+ found.006/                        Users/
+ hedi-manathan/                   'vcredist_x86 (1).exe'*
+ hiberfil.sys                      vcredist_x86.exe*
+ ID_CS2_FR_NonRet/                 wamp64/
+ install.wim                       WCH.CN/
+ Intel/                            webfontkit-20181206-073942/
+ jfreesoft/                        WIN7_x64.iso
+ Kali-Linux-2018.4-vm-amd64/       Windows/
+ lib/                              xampp/
+ MININT/
+
+kercode2018@Pc MINGW64 /c
+$ cd ./xampp
+
+kercode2018@Pc MINGW64 /c/xampp
+$ cd /shareontravel
+bash: cd: /shareontravel: No such file or directory
+
+kercode2018@Pc MINGW64 /c/xampp
+$ ls
+anonymous/            FileZillaFTP/      mysql_stop.bat   test_php.bat
+apache/               htdocs/            passwords.txt    tmp/
+apache_start.bat      img/               perl/            tomcat/
+apache_stop.bat       install/           php/             uninstall.dat
+catalina_service.bat  licenses/          phpMyAdmin/      uninstall.exe*
+catalina_start.bat    locale/            properties.ini   webalizer/
+catalina_stop.bat     mailoutput/        readme_de.txt    webdav/
+cgi-bin/              mailtodisk/        readme_en.txt    xampp_shell.bat
+contrib/              mercury_start.bat  RELEASENOTES     xampp_start.exe*
+ctlscript.bat         mercury_stop.bat   sendmail/        xampp_stop.exe*
+filezilla_setup.bat   MercuryMail/       service.exe*     xampp-control.exe*
+filezilla_start.bat   mysql/             setup_xampp.bat  xampp-control.ini
+filezilla_stop.bat    mysql_start.bat    src/             xampp-control.log
+
+kercode2018@Pc MINGW64 /c/xampp
+$ cd ./htdocs
+
+kercode2018@Pc MINGW64 /c/xampp/htdocs
+$ cd /shareontravel
+bash: cd: /shareontravel: No such file or directory
+
+kercode2018@Pc MINGW64 /c/xampp/htdocs
+$ ls
+ applications.html              killme2/
+ bitnami.css                    les_cartes_et_le_web/
+ bizarre/                       mini_chat/
+ blog/                          minichat/
+'blog - Copie'/                 minichatmylene_refait_pour_postgres/
+ blogpascal/                    monde_des_cartes/
+ chat/                          phppgadmin-REL_5-6-0/
+ cpme_56/                       projetbdd-master/
+ cpme56/                        projetfinal/
+ dashboard/                    'projetfinal - Copie'/
+ data.rennesmetropole.fr.json   projetfinalarefaire/
+ drupal8/                       projetmotdepass/
+ drupal8kill/                   shareontravel/
+ essaiemployer/                 testprojet4-master/
+ favicon.ico                    wordpress_jour2/
+ img/                           wordpress_kercode_theme/
+ index.php                      wordpress_kercode3/
+ jeuvideo/                      xampp/
+ killme/
+
+kercode2018@Pc MINGW64 /c/xampp/htdocs
+$ cd ./shareontravel
+
+kercode2018@Pc MINGW64 /c/xampp/htdocs/shareontravel
+$ sass --watch public/scss/style.scss:public/css/style.css --style compressed
+>>> Sass is watching for changes. Press Ctrl-C to stop.
+      write public/css/style.css
+      write public/css/style.css.map
+
+kercode2018@Pc MINGW64 /c/xampp/htdocs/shareontravel
+$

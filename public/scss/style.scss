@@ -1,0 +1,303 @@
+
+
+/*	------------------------barre de nav et header----------------------*/
+
+
+#logo{
+	width: 49%;
+	background-color: rgb(175, 172, 172);
+	border-radius: 5%;
+	margin-top: -15px;
+	margin-bottom: 5px;
+}
+.nav-item{
+list-style-type: none; 
+}
+.navbar-form navbar-left{
+	margin-right: 50%;
+}
+#menuSecondaire{
+	position: absolute;
+	margin-top: 60px;
+}
+#menuSecondaire ul li:hover .dropdown-menu{/*sous menu*/
+	display:block;
+	position:absolute;
+	top:100%;
+	left:-30px;
+	z-index:1000;
+	background-color: rgb(211, 202, 202)
+}
+
+#inscip-connex{
+	margin-bottom: 50px;
+
+	color:rgb(21, 21, 81);
+	
+	display: flex;
+	float: right;
+}
+#inscrip{
+	color: crimson;
+	padding-top: 16px;
+	margin-right: 10%;
+}
+#inscrip-color{
+	border:1px;
+	color:rgb(21, 21, 81);
+}
+#connect{
+	color:rgb(21, 21, 81);
+	padding-top: 16px;
+	padding-right: 10%;
+}
+.nav-link disabled{
+	color:rgb(21, 21, 81);
+}
+
+
+
+.welcome{
+	color: crimson;
+}
+h1{
+	width: 90%;
+	border: 1px solid rgb(13, 31, 150);
+	border-radius: 3px;
+	padding:  0 10% 0 10%;
+	margin-left: auto;
+
+    margin-right: auto;
+	color:rgb(13, 31, 150);
+	text-align: center;
+	background-color: rgb(189, 189, 191);
+}
+/*	------------------------fin barre de nav et header-------*/
+/*	------------------------page inscription ---------------------*/
+#title_login{
+	width: 100%;
+	
+	margin-right: 15%;
+	text-align: center;
+	color:rgb(13, 31, 150);
+	text-align: center;
+	background-color: rgb(174, 174, 176);
+
+}
+
+
+/*	------------------------fin page inscription----------------------*/
+
+/*  ---------------- pour le menu de destination--------------*/
+/* debut du menu*/
+#menu-dest, #menu-dest ul {
+	list-style: none;/*pas de point devant*/
+}
+/*pour annuler les flottements*/
+#menu-dest:before,
+#menu-dest:after {
+	content: "";
+	display: table;
+}
+#menu-dest:after {
+	clear: both;
+}
+ #menu-dest {
+	zoom:1;
+}
+/*Les elements de listes*/
+#menu-dest li {
+	float: left;
+	border-right: 0px solid #222;
+	box-shadow: 0px 0 0 #444;
+	position: relative;
+}
+ #menu-dest a {
+	float: left;
+	padding: 12px 30px;
+	color:#ffffff;/* couleur blanche des textes*/
+	text-transform: uppercase;
+	font: bold 12px Arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+/*padding: 7px 1% 0 1%;*/
+	border: 1px solid #3c3c3c; 
+	background-color: #cda478;
+	border-radius: 6px;
+	box-shadow: 1px 1px 1px #777;
+}
+ #menu-dest li:hover > a {
+	color: #fafafa;/*couleur blanche*/
+}
+html   #menu-dest li a:hover { /* IE6 only */
+	color: #fafafa;/*couleur blanche*/
+}
+/*les sous menus*/
+#menu-dest ul {
+	margin: 20px 0 0 0;
+	_margin: 0; /*IE6 only*/
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	z-index: 9999;/*defini le (z-order, 
+l'ordre des différentes couches que formeront l'élément),
+d'un élément positionné et de ses éléménts fils ou de ses 
+éléments flexibles*/
+    background: linear-gradient(#444, #111);
+	box-shadow: 0 -1px 0 rgba(255,255,255,.3);
+	border-radius: 3px;
+/*apporte un coter transparent */
+	transition: all .2s ease-in-out;
+}
+#menu-dest li:hover > ul {
+	opacity: 1;
+	visibility: visible;
+	margin: 0;
+}
+#menu-dest ul ul {
+	top: 0;
+	left: 150px;
+	margin: 0 0 0 20px;
+	_margin: 0; /*IE6 only*/
+	box-shadow: -1px 0 0 rgba(255,255,255,.3);/*pas de couleur*/
+}
+#menu-dest ul li {
+	float: none;
+	display: block;
+	border: 0;
+	_line-height: 0; /*IE6 only*/
+	box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+}
+#menu-dest ul li:last-child {
+	box-shadow: none;
+}
+#menu-dest ul a {
+	padding: 10px;
+	width: 130px;
+	_height: 10px; /*IE6 only*/
+	display: block;
+	white-space: nowrap;
+	float: none;
+	text-transform: none;
+}
+#menu-dest ul a:hover {
+	background-color: #c4a177;
+    background-image: linear-gradient(#b28e63, #c4a177);
+}
+/*  ----------------fin menu de destination--------------*/
+
+/* ------page travelview --*/
+
+#whyShare{
+	width: 90%;
+	border: 1px solid rgb(13, 31, 150);
+	border-radius: 3px;
+	padding:  0 10% 0 10%;
+	margin-left: auto;
+
+    margin-right: auto;
+	
+}
+.wp{
+	text-indent: 5%;
+}
+//#travelprop{
+//}
+.row{
+	
+	min-height: 100px;
+	border: 2px solid rgb(13, 31, 150);
+	border-radius: 3px;
+	margin: 2px 1% 2px 1%;
+}
+#cadre-prop{
+	border: 1px solid rgb(13, 31, 150);
+	 border-radius: 3px;
+	 margin:10px 1% 5px 1%;
+	 background-color: rgb(216, 210, 210);
+}
+.detail{
+	margin: 2px 1% 2px 1%;
+}
+// #dateprop{
+// 	text-align:right;
+// 	font-size: 20px
+// }
+#nameprop{
+	text-align: center;
+	font-weight: bold;
+	color: rgb(13, 31, 150);
+}
+ #commentprop{
+	height: 100px;
+ 	border: 1px solid rgb(13, 31, 150);
+ 	border-radius: 3px;
+	 margin: 2px 1% 2px 1%;
+	 background-color: white;
+ }
+
+#explication{
+	margin-top: 50px;
+	height: 450px;
+	width: 95%;
+	display: flex;
+	justify-content: flex-start;
+
+}
+
+.col-xs-12 {
+	background-color: greenyellow;
+	
+}
+.col-xs-6 {
+	height:200px;
+	background-color: rgb(112, 25, 241);
+	
+}
+.col-xs-6 col-md-6{
+	background-color: rgb(129, 134, 236);
+	height: 50px;;
+}
+
+.trio{
+	width: 30%;
+	margin-top: 50px;
+	border: 1px solid rgb(13, 31, 150);
+	border-radius: 3px;
+	margin: 2px 1% 2px 1%;
+	height: 350px;
+}
+.trio h4{
+	padding-top: 10px;
+	text-align: center;
+	font:bold;
+	text-decoration: underline;
+}
+.trio img{
+	padding-top: 10px;
+	height: 100px;
+	width: 30%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.trio p{
+	padding-top: 10px;
+	text-align: center;
+	margin: 0 10% 0 10%;
+}
+/* ------fin page travelview --*/
+
+
+/*-----footer------*/
+.fb-ic{
+	color: blue;
+}
+
+.footer-copyright text-center py-3{
+	background-color: #b28e63;
+}
+
+/*    fin footer -----*/

@@ -1,0 +1,16 @@
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: blue; }
+
+#logoshareontravel {
+  width: 50%; }
+
+#logo {
+  width: 20%; }
+
+h1 {
+  color: #15d842;
+  text-align: center; }
+
+/*# sourceMappingURL=style.scc.map */
